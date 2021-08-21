@@ -1,0 +1,17 @@
+SELECT Ciudad_Residencia, AVG(Salario) "Promedio"
+FROM Lider l 
+GROUP BY Ciudad_Residencia
+HAVING AVG(Salario)<400000
+ORDER BY AVG(Salario) DESC;
+
+SELECT p.ID_Proyecto, c.Proveedor
+FROM Proyecto p JOIN Compra c 
+ON(p.ID_Proyecto=c.ID_Proyecto)
+WHERE p.Ciudad ='Neiva'
+ORDER BY p.ID_Proyecto;
+
+SELECT p.ID_Proyecto, mc.Nombre_Material
+FROM Proyecto p JOIN Compra c ON (p.ID_Proyecto=c.ID_Proyecto)
+JOIN MaterialConstruccion mc ON (c.ID_MaterialConstruccion=mc.ID_MaterialConstruccion)
+WHERE p.ID_Proyecto BETWEEN 40 AND 55
+ORDER BY p.ID_Proyecto ASC;
